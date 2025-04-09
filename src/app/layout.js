@@ -1,5 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import HeaderHome from "./components/HeaderHome";
+
+//tạo ra đối tượng font từ thư viện google font được tích hợp sẵn trong nextjs
+const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +23,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC"
+          crossOrigin="anonymous"
+        ></link>
+      </head>
+      <body className={`${roboto.className}`}>
+        <HeaderHome />
         {children}
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+          crossOrigin="anonymous"
+        ></script>
       </body>
     </html>
   );
