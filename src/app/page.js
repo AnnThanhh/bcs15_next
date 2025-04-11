@@ -3,6 +3,29 @@ import styles from "./page.module.css";
 import { getAllProduct } from "./actions/service/productApi";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Shoe Shop | Home",
+  description:
+    "Khám phá các mẫu giày mới nhất tại Shoe Shop. Giá tốt, chất lượng cao!",
+  keywords: ["giày", "giày sneaker", "shoe shop", "sneakers", "giày đẹp"],
+  openGraph: {
+    title: "Shoe Shop",
+    description: "Khám phá các mẫu giày hot nhất tại Shoe Shop!",
+    url: "https://bcs15-next.vercel.app", // Thay bằng domain thực tế
+    siteName: "Shoe Shop",
+    images: [
+      {
+        url: "https://apistore.cybersoft.edu.vn/images/vans-black-black.png", // Ảnh đại diện khi share
+        width: 800,
+        height: 600,
+        alt: "Ảnh giày nổi bật",
+      },
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
+};
+
 //server component
 const Home = async () => {
   const data = await getAllProduct();
