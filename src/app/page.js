@@ -4,6 +4,7 @@ import { getAllProduct } from "./actions/service/productApi";
 import Link from "next/link";
 
 export const metadata = {
+  //thông tin mô tả nội dung của trang web, giúp cho trình duyệt web, các search engine, mxh,... hiểu được nội dung của trang web 
   title: "Shoe Shop | Home",
   description:
     "Khám phá các mẫu giày mới nhất tại Shoe Shop. Giá tốt, chất lượng cao!",
