@@ -21,16 +21,37 @@ const Home = async () => {
       />
       <button className="btn btn-success">Demo</button> */}
       <h3>Shoe shop</h3>
-      {data?.map((prod) => {
-        return (
-          <h3 key={prod.id}>
-            {prod.name}
-            <Link href={`/detail/${prod.id}`} className="btn btn-success">
-              Xem chi tiết
-            </Link>
-          </h3>
-        );
-      })}
+      <div className="row">
+        {data?.map((prod) => {
+          return (
+            // <h3 key={prod.id}>
+            //   {prod.name}
+            //   <Link href={`/detail/${prod.id}`} className="btn btn-success">
+            //     Xem chi tiết
+            //   </Link>
+            // </h3>
+            <div className="col-4 mt-2" key={prod.id}>
+              <div className="card">
+                <Image
+                  src={prod.image}
+                  alt={prod.name}
+                  crossOrigin="anonymous"
+                  width={500}
+                  height={500}
+                  className="w-100"
+                />
+                <div className="card-body">
+                  <h3>{prod.name}</h3>
+                  <p> {prod.price}</p>
+                  <Link href={`/detail/${prod.id}`} className="btn btn-success">
+                    Xem chi tiết
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
