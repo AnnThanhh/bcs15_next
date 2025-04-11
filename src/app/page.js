@@ -1,11 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
-const getAllProduct = async () => {
-  const res = await fetch("https://apistore.cybersoft.edu.vn/api/Product");
-  const data = await res.json();
-  return data.content
-};
+import { getAllProduct } from "./actions/service/productApi";
+import Link from "next/link";
 
 //server component
 const Home = async () => {
@@ -26,7 +22,14 @@ const Home = async () => {
       <button className="btn btn-success">Demo</button> */}
       <h3>Shoe shop</h3>
       {data?.map((prod) => {
-        return <h3 key={prod.id}>{prod.name}</h3>;
+        return (
+          <h3 key={prod.id}>
+            {prod.name}
+            <Link href={`/detail/${prod.id}`} className="btn btn-success">
+              Xem chi tiết
+            </Link>
+          </h3>
+        );
       })}
     </div>
   );

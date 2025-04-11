@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const HeaderHome = () => {
+  const [keyword, setKeyword] = useState("");
+  const router = useRouter();
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,16 +42,29 @@ const HeaderHome = () => {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            <form
+              className="d-flex"
+              role="search"
+              onSubmit={(e) => {
+                e.preventDefault()
+                router.push(`/search?keyword=${keyword}`);
+              }}
+            >
               <input
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={(e) => {
+                  setKeyword(e.target.value);
+                }}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <Link
+                href={`/search?keyword=${keyword}`}
+                className="btn btn-outline-success"
+              >
                 Search
-              </button>
+              </Link>
             </form>
           </div>
         </div>
