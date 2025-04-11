@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bcs15-next.vercel.app/
+
+# Sitemaps
+Sitemap: https://bcs15-next.vercel.app/sitemap.xml
